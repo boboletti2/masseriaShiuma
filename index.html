@@ -39,6 +39,23 @@
         <h1 class="hero-title"><b>Masseria Schiuma</b></h1>
     </main>
 
+    
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Prevent background scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
