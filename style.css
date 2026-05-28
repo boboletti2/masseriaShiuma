@@ -41,18 +41,7 @@ body.theme-transparent {
 }
 
 /* --- HEADER & NAVIGATION --- */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 2rem 4rem;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    z-index: 100;
-}
+
 
 /* Left side header link (palazzo penelope) */
 .header-left {
@@ -125,12 +114,25 @@ nav a.active::after {
     transition: all 0.3s;
 }
 
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 4rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 600; /* Increased from 100 to stay above the drawer */
+}
+
 .mobile-drawer {
     position: fixed;
     inset: 0;
     background-color: var(--bg-green);
     color: var(--text-white);
-    z-index: 499;
+    z-index: 500; /* Sits directly below the header */
     display: flex;
     flex-direction: column;
     align-items: center;
