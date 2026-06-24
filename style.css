@@ -39,12 +39,11 @@ body.theme-transparent {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; 
+    height: 100vh;
+    height: 100dvh; 
     object-fit: cover;
     z-index: -1;
-      width: 100dvw;
-    height: 100dvh;
 }
 
 /* --- HEADER & NAVIGATION --- */
