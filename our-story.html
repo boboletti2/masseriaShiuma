@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Masseria Schiuma</title>
+    <link rel="icon" type="image/png" href="img/Masserianylogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-green">
+    <header>
+        <div class="header-left"></div> <!-- Empty div to maintain flex spacing -->
+        <a href="index.html" class="header-center-logo">MASSERIA<br>SCHIUMA</a>
+        
+        <nav>
+            <a href="our-story.html" class="active">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="rooms.html">rooms</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="rooms.html" class="drawer-link">rooms</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <!-- Text moved from the old Index Page -->
+        <p class="text-large text-center uppercase">
+            An old farmhouse in Puglia, restored slowly and carefully over time. Stone walls, olive trees, long dinners, and the quieter rhythms of southern Italian life.
+        </p>
+        <img src="img/stuestor.jpg" alt="Masseria Interior" class="hero-img">
+        
+        <p class="text-medium text-center">
+            MASSERIA SCHIUMA is a modern, quiet enclave located in Polignano a Mare. Upon arriving, you will find yourself in the company of the most primary of elements: sky, sea, sun, wind.
+        </p>
+        <p class="text-medium text-center">
+            A beautiful ancient building on the cliffs with spectacular sea views facing the famous Grotta Palazzese of Polignano a Mare. It has been carefully renovated in typical Apulian style, with vaulted tuff ceilings. The house has been tastefully restored by the best local Apulian craftsmen in local materials, and has been enriched by Scandinavian designer items and African art.
+        </p>
+        <p class="text-medium text-center text-small" style="margin-bottom: 6rem;">
+            It is a sister property to Palazzo Penelope, which is a 20 minute drive away from the house.
+        </p>
+
+        <!-- Original Our Story Content -->
+        <h2 class="section-title">OUR STORY</h2>
+        <img src="img/spisehal.jpg" alt="Dining Area" class="hero-img">
+        
+        <p class="text-medium text-center">
+            Our family's connection to southern Italy began generations ago through the import of fruits and vegetables from Puglia to Northern Europe.<br>
+            Since the 1980s, the region became a constant part of family life, not only through its produce, but through the people, the culture, and the slower rhythm of living that defines this part of Italy.
+        </p>
+        <p class="text-medium text-center">
+            Over time, that connection deepened and eventually led to the restoration of Masseria Schiuma, an old farmhouse surrounded by olive groves and the landscapes that shaped much of our family's history in Puglia. The masseria remains closely tied to the traditions of the region, with long meals, local ingredients, warm evenings, and a way of life rooted in simplicity and gathering.
+        </p>
+        <p class="text-medium text-center">
+            Masseria Schiuma is not simply a place to stay, but an extension of that story.
+        </p>
+
+        <div class="grid-3">
+            <img src="img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-view-1729826060667.jpg" alt="Pool">
+            <img src="img2/masseria-schiuma_farmhouse_puglia-italy_exterior-art-1729826061275.jpg" alt="Details">
+            <img src="img/køkken.jpg" alt="Kitchen">
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                // We use an onclick function here to guarantee it registers
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Stops the background from scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

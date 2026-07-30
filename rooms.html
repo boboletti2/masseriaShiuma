@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms - Masseria Schiuma</title>
+    <link rel="icon" type="image/png" href="img/Masserianylogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-beige">
+<header>
+        <div class="header-left"></div> <!-- Empty div to maintain flex spacing -->
+        <a href="index.html" class="header-center-logo">MASSERIA<br>SCHIUMA</a>
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="rooms.html" class="active">rooms</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="rooms.html" class="drawer-link">rooms</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <p class="text-medium text-center">
+            Each room at Masseria Schiuma carries its own atmosphere, shaped by colour, light, and the original character of the old farmhouse.<br>
+            Stone walls, natural textures, linen textiles, and collected vintage pieces create spaces that feel calm, understated, and deeply connected to the slower rhythm of life in Puglia.<br>
+            Rather than traditional hotel rooms, each space was designed to feel personal and lived in, balancing rustic Apulian architecture with a quieter and more minimal sense of comfort.
+        </p>
+
+        <div class="grid-3">
+            <img src="img/ph-verde-a.jpg" alt="Verde Room">
+            <img src="img2/masseria-schiuma_farmhouse_puglia-italy_interior-bathroom-1729826061171.jpg" alt="Bathroom">
+            <img src="img/ph-rosa-b.jpg" alt="Rosa Room">
+        </div>
+
+        <div class="rooms-list">
+            <div class="room-item">
+                <div class="room-name">VERDE</div>
+                <div>Soft green tones, natural textures, and views towards the courtyard create a calm atmosphere inspired by the surrounding olive groves.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">GIALLO</div>
+                <div>Sun washed walls, warm light, and vintage details reflect the colours and energy of the southern Italian summer.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">ROSSA</div>
+                <div>A more intimate and atmospheric space defined by earthy tones, collected objects, and a softer evening mood.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">TERRACOTTA</div>
+                <div>Rich mineral colours and natural materials echo the red soil and warm landscape of Puglia.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">BLU</div>
+                <div>Cooler tones and soft natural light inspired by the nearby Adriatic Sea, only moments from the masseria.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">BIANCO</div>
+                <div>Minimal, airy, and understated, shaped by white stone, simplicity, and light moving through the room throughout the day.</div>
+            </div>
+            <div class="room-item">
+                <div class="room-name">CUCINOTTO</div>
+                <div>Originally connected to the historic kitchen spaces of the farmhouse, this room carries a more rustic and traditional character while remaining warm and refined.</div>
+            </div>
+            
+            <p class="text-small" style="margin-top: 4rem;">
+                The house accommodates up to 15 guests across six ensuite bedrooms and is available exclusively for weekly private stays, retreats, and intimate gatherings.
+            </p>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                // We use an onclick function here to guarantee it registers
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Stops the background from scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

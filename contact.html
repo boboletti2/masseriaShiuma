@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Masseria Schiuma</title>
+    <link rel="icon" type="image/png" href="img/Masserianylogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-green">
+<header>
+        <div class="header-left"></div> <!-- Empty div to maintain flex spacing -->
+        <a href="index.html" class="header-center-logo">MASSERIA<br>SCHIUMA</a>
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="rooms.html">rooms</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="rooms.html" class="drawer-link">rooms</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <div class="contact-block">
+            <p>
+                Masseria Schiuma is available exclusively for private<br>
+                weekly stays, retreats, and intimate gatherings.<br>
+                For bookings, availability, and further<br>
+                information, please contact us directly.
+            </p>
+            <p style="margin: 2rem 0;">
+                The property is only rented out on a<br>
+                minimum of 7 days
+            </p>
+            <p>
+                <a href="mailto:Masseriaschiuma@gmail.com" style="color: inherit; text-decoration: none; border-bottom: 1px solid currentColor;">Masseriaschiuma@gmail.com</a>
+            </p>
+            <p style="margin-top: 3rem;">
+                Instagram<br>
+                Puglia, Italy
+            </p>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                // We use an onclick function here to guarantee it registers
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Stops the background from scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Masseria Schiuma</title>
+    <link rel="icon" type="image/png" href="img/Masserianylogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-green">
+<header>
+        <div class="header-left"></div> <!-- Empty div to maintain flex spacing -->
+        <a href="index.html" class="header-center-logo">MASSERIA<br>SCHIUMA</a>
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="rooms.html">rooms</a>
+            <a href="gallery.html" class="active">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="rooms.html" class="drawer-link">rooms</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main class="page-section">
+        <div class="gallery-grid" id="gallery-grid">
+            <!-- Images will be injected here by JS -->
+        </div>
+    </main>
+
+    <!-- Lightbox Element -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</button>
+        <img src="" alt="Enlarged view" class="lightbox-img" id="lightbox-img">
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</button>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        const imageFiles = [
+            'img/ph-cuinotta-b.png', 'img/ph-gialla-a.jpg', 'img/ph-gialla-b.jpg', 'img/ph-rosa-a.jpg', 'img/ph-rosa-b.jpg',
+            'img/ph-terra-a.png', 'img/ph-terra-b.png', 'img/ph-verde-a.jpg', 'img/ph-verde-a.png', 'img/ph-verde-b.png',
+            'img/poolcloseup.jpg', 'img/spisehal.jpg', 'img/stuestor.jpg', 'img/stuestor.png', 'img/stuewide.jpg',
+            'img/thesite.jpg', 'img/køkken.jpg', 'img/mainfront.jpg', 'img/outsidedinner.png', 'img/outsidetable.jpg',
+            'img/ph-azzura-a.jpg', 'img/ph-azzura-b.png', 'img/ph-cuinotta-a.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-yellow-detail-1729826060769.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-1729826061266.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-art-1729826061275.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-facade-detail-1729826060370.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-1729826057963.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-detail-1729826057880.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-facade-1729826058783.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-plants-1729826061469.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-pool-view-1729826060667.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-sofa-1729826061263.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-table-1729826061473.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-table-detail-1729826060975.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-terrace-1729826060978.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-view-1729826058872.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_exterior-view-pool-1729826061181.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-1729826060765.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-arch-table-1729826061272.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-art-1729826060570.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bathroom-1729826061171.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bathtub-1729826060674.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bathtub-detail-1729826061174.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bed-1729826060476.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-1729826059973.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bed-room-1729826061267.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-bathtub-1729826060672.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-chairs-1729826061288.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-design-1729826059985.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-pink-1729826061269.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-bedroom-window-1729826061369.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-blue-bathroom-1729826061564.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-chair-1729826060969.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-design-1729826060268.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-desk-1729826061571.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-detail-1729826060964.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-hats-1729826061164.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-kitchen-1729826060470.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-living-room-1729826058765.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-mirror-1729826060473.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-night-1729826061178.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-pink-bedroom-1729826061468.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-red-table-1729826061464.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-room-1729826060669.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-room-bed-1729826061566.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-table-1729826061289.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-table-chairs-1729826060573.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-table-design-1729826061475.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-table-terrace-1729826061375.jpg',
+            'img2/masseria-schiuma_farmhouse_puglia-italy_interior-windows-1729826060764.jpg'
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        let currentIndex = 0;
+
+        imageFiles.forEach((src, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+
+            const img = new Image();
+            img.src = src;
+            img.alt = "Masseria Schiuma Gallery Image";
+
+            img.onload = () => {
+                const aspectRatio = img.naturalWidth / img.naturalHeight;
+                if (aspectRatio > 1.4) {
+                    item.classList.add('wide');
+                } else if (aspectRatio < 0.8) {
+                    item.classList.add('tall');
+                } else {
+                    if (Math.random() > 0.7) item.classList.add('large');
+                }
+                item.appendChild(img);
+                galleryGrid.appendChild(item);
+            };
+
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                updateLightboxImage();
+                lightbox.classList.add('active');
+            });
+        });
+
+        function updateLightboxImage() { lightboxImg.src = imageFiles[currentIndex]; }
+        function closeLightbox() { lightbox.classList.remove('active'); }
+        function nextImage() { currentIndex = (currentIndex + 1) % imageFiles.length; updateLightboxImage(); }
+        function prevImage() { currentIndex = (currentIndex - 1 + imageFiles.length) % imageFiles.length; updateLightboxImage(); }
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-next').addEventListener('click', nextImage);
+        document.getElementById('lightbox-prev').addEventListener('click', prevImage);
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                // We use an onclick function here to guarantee it registers
+                hamburger.onclick = function() {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Stops the background from scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                };
+            }
+        });
+    </script>
+</body>
+</html>

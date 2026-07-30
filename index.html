@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masseria Schiuma</title>
+    <link rel="icon" type="image/png" href="img/Masserianylogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-transparent">
+    
+    <!-- Fullscreen background image mapped from your old source -->
+    <img src="img/batthtub.jpg" alt="Masseria Schiuma Bathtub Room" class="bg-fullscreen">
+
+    <header>
+        <a href="https://www.palazzopenelope.com/home" class="header-left">palazzo penelope</a>
+        
+        <!-- The center logo is omitted here because it is large in the main body -->
+
+        <nav>
+            <a href="our-story.html">Our story</a>
+            <a href="contact.html">Contact</a>
+            <a href="rooms.html">rooms</a>
+            <a href="gallery.html">gallery</a>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </header>
+
+    <div class="mobile-drawer" id="mobile-drawer">
+        <a href="our-story.html" class="drawer-link">Our story</a>
+        <a href="contact.html" class="drawer-link">Contact</a>
+        <a href="rooms.html" class="drawer-link">rooms</a>
+        <a href="gallery.html" class="drawer-link">gallery</a>
+    </div>
+
+    <main>
+        <h1 class="hero-title"><b>Masseria Schiuma</b></h1>
+    </main>
+
+    
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const drawer = document.getElementById('mobile-drawer');
+
+            if (hamburger && drawer) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    drawer.classList.toggle('active');
+                    // Prevent background scrolling when menu is open
+                    document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
