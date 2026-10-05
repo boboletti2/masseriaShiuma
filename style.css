@@ -32,6 +32,7 @@ body.theme-beige {
 /* Index Page Theme Override */
 body.theme-transparent {
     background-color: var(--bg-beige);
+      background: url('img/batthtub.jpg') center / cover no-repeat;
     color: var(--text-green);
 }
 
