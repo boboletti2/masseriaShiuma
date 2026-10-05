@@ -29,28 +29,20 @@ body.theme-beige {
     color: var(--text-green);
 }
 
-html {
-    height: 100%;
-    background-color: #d9d2c3; /* colour picked from the image edge, see note below */
-}
-
+/* Index Page Theme Override */
 body.theme-transparent {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    background: url('img/batthtub.jpg') center / cover no-repeat;
+    background-color: var(--bg-beige);
     color: var(--text-green);
 }
 
-
 .bg-fullscreen {
-    position: absolute;   /* was fixed */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100lvh;
     object-fit: cover;
     z-index: -1;
+    width: 100dvw;
+    height: 100dvh;
 }
 
 /* --- HEADER & NAVIGATION --- */
